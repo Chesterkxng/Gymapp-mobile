@@ -1,4 +1,4 @@
-import { StyleSheet, KeyboardAvoidingView } from "react-native";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -8,7 +8,9 @@ export default function App({ children }) {
       colors={["#F8FAFC", "#FFFFFF"]}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safe}>
+      <SafeAreaView style={styles.safe}
+        edges={['top', 'left', 'right']}
+      >
         {children}
       </SafeAreaView>
     </LinearGradient>
@@ -18,9 +20,10 @@ export default function App({ children }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }, 
+  },
   safe: {
     flex: 1,
-    padding: 24,
+    paddingHorizontal: 24,
+    paddingTop: 24
   }
 });

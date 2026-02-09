@@ -1,4 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
+import { formatRelativeTime } from "@/utils/datetime";
+import { NOTIFICATION_CONFIG } from "@/app/notification/notification.config";
 import Icon from "@/components/ui/Icon";
 
 export default function NotificationCard({
@@ -6,26 +8,12 @@ export default function NotificationCard({
   gymName,
   message,
   type,
-  time,
+  createdAt,
   unread = false,
   onPress,
 }) {
 
-  const NOTIFICATION_CONFIG = {
-    reminder: {
-      icon: "calendar",
-      iconColor: "#4F39F6",
-      backgroundColor: "#E0E7FF"
-    }, 
-    birthday: {
-      icon: "birthdate",
-      iconColor: "#155DFC",
-      backgroundColor: "#DBEAFE",
-    }
-  }
-
   const config = NOTIFICATION_CONFIG[type] || NOTIFICATION_CONFIG.reminder;
-
 
   return (
     <Pressable style={styles.card} onPress={onPress}>
@@ -42,8 +30,9 @@ export default function NotificationCard({
         {gymName && (
           <Text style={styles.subtitle}>{gymName}</Text>
         )}
-        <Text style={styles.message}>{message}</Text>
-        <Text style={styles.time}>{time}</Text>
+        <Text style={styles.message} numberOfLines={1}
+          ellipsizeMode="tail">{message}</Text>
+        <Text style={styles.time}>{formatRelativeTime(createdAt)}</Text>
       </View>
 
       {/* Unread dot */}

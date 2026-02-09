@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     height: "128",
+    marginBottom: 30,
 
     // shadow iOS
     shadowColor: "#000",

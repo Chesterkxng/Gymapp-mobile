@@ -22,6 +22,10 @@ import Calendar from './calendar.svg';
 import Notification from './notification.svg';
 import Shop from './shop.svg';
 import Birthdate from './birthday.svg';
+import Entry from './entry.svg';
+import Total from './total.svg';
+import Scale from './scale.svg';
+import DoubleCheck from './double-check.svg';
 
 export const Icons = {
     idCard: IDCard,
@@ -47,5 +51,9 @@ export const Icons = {
     calendar: Calendar,
     notification: Notification,
     shop: Shop,
-    birthdate: Birthdate
+    birthdate: Birthdate,
+    entry: Entry,
+    total: Total,
+    scale: Scale,
+    doubleCheck: DoubleCheck
 }

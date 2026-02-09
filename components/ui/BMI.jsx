@@ -27,7 +27,6 @@ export default function BMICard({ bmi }) {
     const getBMIStatus = (bmi) => { return BMI_RULES.find(rule => bmi < rule.max); }
 
     const status = getBMIStatus(bmi)
-    console.log(status)
 
     return (
         <View style={styles.card}>
@@ -44,7 +43,7 @@ export default function BMICard({ bmi }) {
             {/* Progress bar */}
             <View style={styles.barWrapper}>
                 <LinearGradient
-                    colors={["#3B82F6", "#22C55E", "#F59E0B", "#EF4444"]}
+                    colors={["#2B7FFF", "#00C950", "#F59E0B", "#FB2C36"]}
                     locations={[0, 0.4, 0.7, 1]}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}

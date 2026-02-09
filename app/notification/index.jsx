@@ -1,38 +1,42 @@
+import { FlatList } from "react-native";
 import AppView from '@/components/layout/AppView'
 import NavBack from '@/components/layout/NavBack'
 import TabHeader from '@/components/layout/TabHeader'
 import NotificationCard from '@/components/ui/NotificationCard'
+import { notifications } from '@/data/notifications'
+import { router } from "expo-router";
 
 
 const index = () => {
+
   return (
     <AppView>
-      
+
       <NavBack />
 
-    <TabHeader 
+      <TabHeader
         title={"Notifications"}
-        style={{marginBottom: 32}}
-    />
+        style={{ marginBottom: 32 }}
+      />
 
-    <NotificationCard
-      title={"Rappel d'abonnement"}
-      type={"reminder"}
-      gymName={"FITZONE"}
-      message={"Votre abonnement expire le 15 février 2026"}
-      time={"Il y'a 2 heures"}
-      unread
-     />
+      <FlatList
+        data={notifications}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 24, paddingHorizontal: 1 }}
+        renderItem={({ item }) => (
+          <NotificationCard
+            title={item.title}
+            type={item.type}
+            gymName={item.gymName}
+            message={item.message}
+            createdAt={item.createdAt}
+            unread={item.unread}
+            onPress={() => router.push(`/notification/${item.id}`)}
+          />
+        )}
+      />
 
-     <NotificationCard
-      title={"Joyeux anniversaire"}
-      type={"birthday"}
-      message={"X vous souhaite un joyeux anniversaire. Meilleurs Voeux!"}
-      time={"Il y'a 5 jours"}
-      unread
-     />
-
-        
     </AppView>
   )
 }

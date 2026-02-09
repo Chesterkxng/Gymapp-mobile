@@ -15,18 +15,19 @@ const profile = () => {
         style={{ marginBottom: 32 }}
       />
 
-      <ProfileCard
-        name={"Goita Cheick Salif"}
-        memberId={"FP-2024-87654321"}
-        gender={false}
-      />
-
       <ScrollView
+        style={{ flex: 1 }}
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
         fadingEdgeLength={0}
         overScrollMode='never'
-        >
+      >
+
+        <ProfileCard
+          name={"Goita Cheick Salif"}
+          memberId={"FP-2024-87654321"}
+          gender={false}
+        />
 
 
         <MenuGroup
@@ -84,8 +85,8 @@ export default profile
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: 24,
-    paddingBottom: 50,
+    paddingHorizontal: 1,
+    paddingBottom: 70,
   },
   logout: {
     backgroundColor: "#FFFFFF",
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
 
     shadowColor: "#000",
     shadowOpacity: 0.08,
-    shadowRadius: 12,
+    shadowRadius: 16,
     shadowOffset: { width: 0, height: 6 },
     elevation: 4,
   }
